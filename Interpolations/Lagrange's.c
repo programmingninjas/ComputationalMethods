@@ -13,6 +13,8 @@ int main() {
     // p = [(x-x1)(x-x2)...(x-xn)]/[(x0-x1)(x0-x2)...(x0-xn)] {for i=1}
     // xp is the interpolation point
     // yp is the interpolation value
+	
+    // Filling x and y arrays with data points
     float x[10],y[10],p,xp,yp=0;
     int n;
     printf("Enter number of data points: ");
@@ -23,11 +25,12 @@ int main() {
 		  printf("y[%d] = ", i);
 		  scanf("%f", &y[i]);
     }
-    
-    printf("Enter interpolation point: ");
+    printf("Enter interpolation point: "); // Point at which we need to find value of the unknown function
     scanf("%f",&xp);
+    // Iterating complete terms(of one factors*y value) till n
     for(int i=0;n>i;i++){
         p=1;
+	// Iterating p(all factors for one x value) till n
         for(int j=0;n>j;j++){
             if (i!=j){
                 p = p*(xp-x[j])/(x[i]-x[j]);
