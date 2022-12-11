@@ -25,7 +25,7 @@ int main()
         {
             L = M;
         }
-        if(abs(R-L) < threshold)
+        if(fabs(R-L) < threshold)
         {
             break;
         }

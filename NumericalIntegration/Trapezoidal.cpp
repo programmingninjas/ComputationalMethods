@@ -14,25 +14,15 @@ int main()
     int n = 100;//number of subIntervals
     float h = (high - low)/n;
 
-    float x[n+1];//array to store the interval values
-    
-    float curr = low;
-    for(int i = 0 ; i <= n ; i++)//seting intervals to array
-    {
-        x[i] = curr;
-        curr += h;
-    }
-
     float ans = 0;//final answer
 
-    ans += f(x[0]);//add first term
+    ans += f(low);//add first term
+    ans += f(high);//add last term
 
     for(int i = 1 ; i < n ; i++)
     {
-        ans += 2*f(x[i]);//2 * middle elements
+        ans += 2*f(low + i * h);//2 * middle elements
     }
-
-    ans += f(x[n]);//add last term
 
     ans *= h/2;//multiplier
 
