@@ -2,16 +2,18 @@
 using namespace std;
 
 //x^{2}+x-1
-double f(double x)//function
+float f(float x)//function
 {
     return x*x*x - 4*x - 9; 
 }
 int main()
 {
-    double L = 2;
-    double R = 3;//range
-    double M = (L+R)/2;
+    float L = 2;
+    float R = 3;//range
+    float M = (L+R)/2;
     int iterations = 20;
+    float threshold = .00001;
+    
     while(iterations--)
     {
         M = (L+R)/2;
@@ -22,6 +24,10 @@ int main()
         else//root is b/w (M,R) 
         {
             L = M;
+        }
+        if(abs(R-L) < threshold)
+        {
+            break;
         }
     }
     cout<<M;
